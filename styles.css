@@ -78,6 +78,18 @@ html, body {
     box-shadow: 0 0 0 3px rgba(141, 122, 218, 0.6); /* Sombra al tener el foco */
 }
 
+#div-matriz{
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-family: "Ubuntu", serif;
+    font-weight: 600;
+    display: none;
+}
+
+
+
 
 
 

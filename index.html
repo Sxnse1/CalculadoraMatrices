@@ -23,17 +23,27 @@
     <div id="div-inicial">
         
         <p>Número de filas</p>
-        <input id="filasMatriz" class="input-indicador" />
+        <input type="number" id="filasMatriz" class="input-indicador" placeholder="2"/>
         
         <p>Número de columnas</p>
-        <input id="columnasMatriz" class="input-indicador" />
+        <input type="number" id="columnasMatriz" class="input-indicador" placeholder="2"/>
 
         <button id="boton-confirmar" onclick="confirmarMatriz()">
             Confirmar
         </button>
     </div>
 
-    <script src="scripts.js"></script>
+    <div id="div-matriz">
+        <table id="tabla-matriz">
+            <tbody id="cuerpo-matriz">
+                lol
+            </tbody>
+        </table>
+        <button id="boton-calcular" onclick="calcularMatriz()">
+            Calcular
+        </button>
+
+    <script src="script.js"></script>
 </body>
 
 </html>
