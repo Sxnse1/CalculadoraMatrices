@@ -1,0 +1,83 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
+
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+/* Fija el título arriba */
+#div-titulo {
+    display: flex;
+    font-family: "Ubuntu", serif;
+    width: 100%;
+    padding: 20px 0;
+    background: linear-gradient(to right, #8f7ada, #6a5acd, #483d8b);
+    color: white; /* Color de texto */
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+/* Centra el segundo div en el espacio restante */
+#div-inicial {
+    flex: 1; /* Ocupa el espacio disponible */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-family: "Ubuntu", serif;
+    font-weight: 600;
+}
+
+.input-indicador {
+    width: 20%;
+    padding: 10px;
+    border: 2px solid #8f7ada;
+    border-radius: 10px;
+    outline: none;
+    transition: 0.3s;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    caret-color: #008B8B;
+    font-family: "Ubuntu", serif;
+    color: gray
+}
+
+.input-indicador:focus {
+    border-color: #6a5acd;
+    box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.3);
+}
+
+#boton-confirmar {
+    margin: 10px;
+    padding: 12px 20px; /* Espaciado interno */
+    font-size: 16px; /* Tamaño de la fuente */
+    color: white; /* Color del texto */
+    background: linear-gradient(to right, #8f7ada, #6a5acd); /* Degradado de fondo */
+    border: none; /* Sin borde */
+    border-radius: 8px; /* Bordes redondeados */
+    cursor: pointer; /* Cambia el cursor al pasar sobre el botón */
+    transition: all 0.3s ease; /* Transición suave */
+    text-align: center; /* Centra el texto */
+}
+
+#boton-confirmar:hover {
+    background: linear-gradient(to right, #6a5acd, #8f7ada); /* Invertir el degradado en hover */
+    transform: scale(1.05); /* Efecto de aumento al pasar el mouse */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Sombra en hover */
+}
+
+#boton-confirmar:focus {
+    outline: none; /* Elimina el borde predeterminado al hacer clic */
+    box-shadow: 0 0 0 3px rgba(141, 122, 218, 0.6); /* Sombra al tener el foco */
+}
+
+
+
+
