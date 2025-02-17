@@ -63,6 +63,7 @@ html, body {
     cursor: pointer;
     transition: all 0.3s ease;
     text-align: center;
+    border: none;
 }
 
 #boton-confirmar:hover {
@@ -94,7 +95,7 @@ html, body {
     margin: 10px;
 }
 
-#matrizA, #matrizB{
+#matrizA, #matrizB, #matrizResultado{
     font-family: "Ubuntu", serif;
 }
 
@@ -104,3 +105,32 @@ html, body {
     margin: 6px;
 }
 
+.botones{
+    margin: 10px;
+    padding: 12px 20px; 
+    font-size: 16px;
+    color: white;
+    background: linear-gradient(to right, #8f7ada, #6a5acd);
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-align: center;
+
+}
+
+.botones:hover{
+    background: linear-gradient(to right, #6a5acd, #8f7ada);
+    transform: scale(1.05);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.botones:focus{
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(141, 122, 218, 0.6);
+}
+
+#divBotones{
+    display: flex;
+    flex-direction: column;
+}
