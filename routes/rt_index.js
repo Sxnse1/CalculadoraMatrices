@@ -1,8 +1,8 @@
 const express = require('express');
-const router = express.router();
+const router = express.Router();
 
 
 router.get('/', require('./rt_routes'));
 router.get('/', require('./views'));
 
-module.exports = router
+module.exports = router;

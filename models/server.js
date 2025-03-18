@@ -1,5 +1,6 @@
 const exp = require('constants');
 const express = require('express');
+const hbs = require('hbs');
 
 class Server {
 
@@ -7,13 +8,16 @@ class Server {
 
         this.app = express();
         this.port = process.env.PORT;
+        this.hbs = hbs;
 
-
+        this.middlewares();
+        this.routes();
 
     };
 
-    middlewares(){
+    middlewares() {
         this.app.use(express.static('public'));
+        this.app.set('view engine', 'hbs');
     };
 
     listen() {
@@ -23,7 +27,9 @@ class Server {
     };
 
     routes() {
-        this.app.use('/', require('../routes/index'));
+        this.app.use('/', require('../routes/rt_index'));
     }
 
 }
+
+module.exports = Server;
