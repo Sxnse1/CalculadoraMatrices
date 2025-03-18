@@ -1,0 +1,23 @@
+{
+  "name": "matrices",
+  "version": "1.0.0",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Sxnse1/CalculadoraMatrices.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Sxnse1/CalculadoraMatrices/issues"
+  },
+  "homepage": "https://github.com/Sxnse1/CalculadoraMatrices#readme",
+  "description": "",
+  "dependencies": {
+    "express": "^4.21.2"
+  }
+}
