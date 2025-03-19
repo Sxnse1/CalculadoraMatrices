@@ -1,4 +1,5 @@
-
+let matrizResultado;
+let operacion;
 
 function confirmarMatriz() {
 
@@ -112,11 +113,13 @@ function creacionMatrizDinamica(numFilasMatriz, numColumnasMatriz) {
 
 function operacionSuma(numFilasMatriz, numColumnasMatriz) {
 
+    operacion = 'suma';
+
     matrizA = creacionMatrizA(numFilasMatriz, numColumnasMatriz);
     matrizB = creacionMatrizB(numFilasMatriz, numColumnasMatriz);
 
 
-    let matrizResultado = new Array(numFilasMatriz).fill().map(() => new Array(numColumnasMatriz).fill(0));
+    matrizResultado = new Array(numFilasMatriz).fill().map(() => new Array(numColumnasMatriz).fill(0));
     for (let i = 0; i < numFilasMatriz; i++) {
         for (let j = 0; j < numColumnasMatriz; j++) {
             matrizResultado[i][j] = parseInt(matrizA[i][j]) + parseInt(matrizB[i][j]);
@@ -126,7 +129,7 @@ function operacionSuma(numFilasMatriz, numColumnasMatriz) {
     console.log(matrizResultado);
     creacionMatrizResultado(matrizResultado);
 
-    
+
 }
 
 function operacionResta(numFilasMatriz, numColumnasMatriz) {
@@ -171,6 +174,7 @@ function creacionMatrizA(numFilasMatriz, numColumnasMatriz) {
     for (let i = 0; i < numFilasMatriz; i++) {
         for (let j = 0; j < numColumnasMatriz; j++) {
             matrizA[i][j] = document.getElementById(`indiceInputA-${i}-${j}`).value;
+            objectMatrizA = {}
         }
     }
 
@@ -228,25 +232,35 @@ function creacionMatrizResultado(matrizResultado) {
     }
 }
 
-document.querySelectorAll("botones").addEventListener("click", async () => {
-    try {
-        const response = await fetch('/save', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ email, password })
-        });
+// Seleccionar todos los elementos con la clase 'botones' (o cualquier selector que estés usando)
+const botones = document.querySelectorAll('.botones');
 
-        const data = await response.json();
+botones.forEach(button => {
+    button.addEventListener('click', async () => {
+        try {
+            // Enviar la solicitud al servidor
+            const response = await fetch('/save', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ operacion, matrizResultado }) // Enviar los datos como JSON
+            });
 
-        if (response.ok && data.success) {
-            alert(data.message);
-            window.location.href = '/dashboard'; // Redirige al dashboard
-        } else {
-            alert(data.message || 'Error en el inicio de sesión');
+            const data = await response.json();
+
+            if (response.ok) {
+                const data = await response.json();
+                alert(data.message); // Mostrar el mensaje que viene del servidor
+                window.location.href = '/dashboard'; // Redirige al dashboard
+            } else {
+                alert('Error en la solicitud: ' + response.statusText);
+            }
+            
+
+        } catch (error) {
+            console.error('Error en la solicitud:', error);
+            alert('Error en la conexión');
+            res.json({ success: true, message: 'Matriz insertada con éxito' });
+
         }
-
-    } catch (error) {
-        console.error('Error en la solicitud:', error);
-        alert('Error en la conexión');
-    }
+    });
 });
