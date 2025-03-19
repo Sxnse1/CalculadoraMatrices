@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 
 
-router.get('/', require('./rt_routes'));
-router.get('/', require('./views'));
+router.use('/', require('./rt_routes'));
+router.use('/', require('./views'));
 
 module.exports = router;

@@ -15,89 +15,100 @@ function confirmarMatriz() {
 
 function creacionMatrizDinamica(numFilasMatriz, numColumnasMatriz) {
     pantallaMatrices = document.createElement("div");
-    document.body.appendChild(pantallaMatrices)
     pantallaMatrices.id = "div-pantalla-matriz";
+    pantallaMatrices.style.display = "flex";
+    pantallaMatrices.style.flexDirection = "column";
+    pantallaMatrices.style.alignItems = "center";
+
+    document.body.appendChild(pantallaMatrices);
+
+    let divFilaMatrices = document.createElement("div");
+    divFilaMatrices.style.display = "flex";
+    divFilaMatrices.style.justifyContent = "center";
+    divFilaMatrices.style.gap = "20px";
+    pantallaMatrices.appendChild(divFilaMatrices);
 
     matrizA = document.createElement("div");
     matrizA.textContent = "Matriz A";
     matrizA.id = "matrizA";
-    pantallaMatrices.appendChild(matrizA);
+    divFilaMatrices.appendChild(matrizA);
+
     matrizB = document.createElement("div");
     matrizB.textContent = "Matriz B";
     matrizB.id = "matrizB";
-    pantallaMatrices.appendChild(matrizB);
+    divFilaMatrices.appendChild(matrizB);
 
     tablaA = document.createElement("table");
-    matrizA.appendChild(tablaA)
+    matrizA.appendChild(tablaA);
     tablaB = document.createElement("table");
     matrizB.appendChild(tablaB);
 
-    tablaA.classList.add("matricesLiteral")
-    tablaB.classList.add("matricesLiteral")
+    tablaA.classList.add("matricesLiteral");
+    tablaB.classList.add("matricesLiteral");
 
     for (let i = 0; i < numFilasMatriz; i++) {
-        //Creacion del tr para matriz A
-        trA = document.createElement("tr");
+        let trA = document.createElement("tr");
         tablaA.appendChild(trA);
-        trA.classList.add("trClass");
-
-        //Creacion del tr para matriz B
-        trB = document.createElement("tr");
+        let trB = document.createElement("tr");
         tablaB.appendChild(trB);
-        trB.classList.add("trClass");
 
         for (let j = 0; j < numColumnasMatriz; j++) {
-
-            tdA = document.createElement("td");
-            trA.appendChild(tdA);
-            inputNumMatrizA = document.createElement("input");
-            inputNumMatrizA.type = "number"
-            tdA.appendChild(inputNumMatrizA);
+            let tdA = document.createElement("td");
+            let inputNumMatrizA = document.createElement("input");
+            inputNumMatrizA.type = "number";
             inputNumMatrizA.classList.add("inputNumMatriz");
             inputNumMatrizA.id = `indiceInputA-${i}-${j}`;
+            tdA.appendChild(inputNumMatrizA);
+            trA.appendChild(tdA);
 
-            tdB = document.createElement("td");
-            trB.appendChild(tdB);
-            inputNumMatrizB = document.createElement("input");
-            tdB.appendChild(inputNumMatrizB);
+            let tdB = document.createElement("td");
+            let inputNumMatrizB = document.createElement("input");
+            inputNumMatrizB.type = "number";
             inputNumMatrizB.classList.add("inputNumMatriz");
-            inputNumMatrizB.type = "number"
             inputNumMatrizB.id = `indiceInputB-${i}-${j}`;
+            tdB.appendChild(inputNumMatrizB);
+            trB.appendChild(tdB);
         }
-
-
     }
 
-    divBotones = document.createElement("div");
-    pantallaMatrices.appendChild(divBotones);
-    divBotones.id = "divBotones"
+    let divFilaResultados = document.createElement("div");
+    divFilaResultados.id = "divFilaResultados";
+    divFilaResultados.style.display = "flex";
+    divFilaResultados.style.justifyContent = "center";
+    divFilaResultados.style.gap = "20px";
+    divFilaResultados.style.marginTop = "20px";
+    pantallaMatrices.appendChild(divFilaResultados);
 
-    botonSuma = document.createElement("button");
-    divBotones.appendChild(botonSuma);
-    botonSuma.textContent = "Suma"
+    divBotones = document.createElement("div");
+    divBotones.id = "divBotones";
+    divBotones.style.marginTop = "20px";
+    pantallaMatrices.appendChild(divBotones);
+
+    let botonSuma = document.createElement("button");
+    botonSuma.textContent = "Suma";
     botonSuma.classList.add("botones");
     botonSuma.onclick = function () {
         operacionSuma(numFilasMatriz, numColumnasMatriz);
     };
+    divBotones.appendChild(botonSuma);
 
-    botonResta = document.createElement("button");
-    divBotones.appendChild(botonResta);
-    botonResta.textContent = "Resta"
+    let botonResta = document.createElement("button");
+    botonResta.textContent = "Resta";
     botonResta.classList.add("botones");
     botonResta.onclick = function () {
         operacionResta(numFilasMatriz, numColumnasMatriz);
     };
+    divBotones.appendChild(botonResta);
 
-    botonDivision = document.createElement("button");
-    divBotones.appendChild(botonDivision);
-    botonDivision.textContent = "División"
+    let botonDivision = document.createElement("button");
+    botonDivision.textContent = "División";
     botonDivision.classList.add("botones");
     botonDivision.onclick = function () {
         operacionDivision(numFilasMatriz, numColumnasMatriz);
     };
-
-
+    divBotones.appendChild(botonDivision);
 }
+
 
 function operacionSuma(numFilasMatriz, numColumnasMatriz) {
 
@@ -114,6 +125,8 @@ function operacionSuma(numFilasMatriz, numColumnasMatriz) {
 
     console.log(matrizResultado);
     creacionMatrizResultado(matrizResultado);
+
+    
 }
 
 function operacionResta(numFilasMatriz, numColumnasMatriz) {
@@ -184,38 +197,56 @@ function creacionMatrizB(numFilasMatriz, numColumnasMatriz) {
 }
 
 function creacionMatrizResultado(matrizResultado) {
-    divMatrizResultado = document.createElement("div");
-    pantallaMatrices.appendChild(divMatrizResultado);
+    let divFilaResultados = document.getElementById("divFilaResultados");
+
+    // Eliminar resultado anterior si existe
+    let matrizAnterior = document.getElementById("matrizResultado");
+    if (matrizAnterior) {
+        divFilaResultados.removeChild(matrizAnterior);
+    }
 
     let contenedorResultado = document.createElement("div");
     contenedorResultado.textContent = "Matriz Resultado";
     contenedorResultado.id = "matrizResultado";
-    divMatrizResultado.appendChild(contenedorResultado);
+    divFilaResultados.appendChild(contenedorResultado);
 
     let tablaResultado = document.createElement("table");
-    contenedorResultado.appendChild(tablaResultado);
-
     tablaResultado.classList.add("matricesLiteral");
+    contenedorResultado.appendChild(tablaResultado);
 
     for (let i = 0; i < matrizResultado.length; i++) {
         let trResultado = document.createElement("tr");
         tablaResultado.appendChild(trResultado);
-        trResultado.classList.add("trClass");
 
         for (let j = 0; j < matrizResultado[i].length; j++) {
             let tdResultado = document.createElement("td");
-            trResultado.appendChild(tdResultado);
-
             let parrafoRespuesta = document.createElement("p");
-            tdResultado.appendChild(parrafoRespuesta);
-            parrafoRespuesta.style.width = "50px";
-            parrafoRespuesta.style.height = "50px";
-            parrafoRespuesta.style.backgroundColor = "white";
-            parrafoRespuesta.style.alignItems = "center";
-            parrafoRespuesta.style.justifyContent = "center";
-            parrafoRespuesta.style.alignContent = "center";
-            parrafoRespuesta.style.margin = "6px";
             parrafoRespuesta.textContent = matrizResultado[i][j];
+            tdResultado.appendChild(parrafoRespuesta);
+            trResultado.appendChild(tdResultado);
         }
     }
 }
+
+document.querySelectorAll("botones").addEventListener("click", async () => {
+    try {
+        const response = await fetch('/save', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ email, password })
+        });
+
+        const data = await response.json();
+
+        if (response.ok && data.success) {
+            alert(data.message);
+            window.location.href = '/dashboard'; // Redirige al dashboard
+        } else {
+            alert(data.message || 'Error en el inicio de sesión');
+        }
+
+    } catch (error) {
+        console.error('Error en la solicitud:', error);
+        alert('Error en la conexión');
+    }
+});

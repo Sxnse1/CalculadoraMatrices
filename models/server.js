@@ -1,6 +1,7 @@
 const exp = require('constants');
 const express = require('express');
 const hbs = require('hbs');
+const {connect} = require('../database/config.js');
 
 class Server {
 
@@ -12,6 +13,7 @@ class Server {
 
         this.middlewares();
         this.routes();
+        connect();
 
     };
 
@@ -22,7 +24,7 @@ class Server {
 
     listen() {
         this.app.listen(this.port, () => {
-            console.log(`El servidor esta escuchando el puerto: ${this.port}`);
+            console.log(`El servidor esta escuchando el puerto: http://localhost:${this.port}`);
         });
     };
 
