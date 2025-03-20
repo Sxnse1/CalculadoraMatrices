@@ -254,13 +254,13 @@ async function guardarBase(operacion) {
         const data = await response.json();
 
         if (response.ok) {
-            alert(data.message);
+            console.log(data.message);
         } else {
-            alert("Error en la solicitud: " + response.statusText);
+            console.log("Error en la solicitud: " + response.statusText);
         }
     } catch (error) {
         console.error("Error en la solicitud:", error);
-        alert("Error en la conexión");
+        console.log("Error en la conexión");
     };
 };
 

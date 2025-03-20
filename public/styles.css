@@ -1,5 +1,41 @@
 @import url('https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
 
+@media (max-width: 768px) {
+    #div-pantalla-matriz {
+        flex-direction: column;
+    }
+
+    .matricesLiteral {
+        width: 90%;
+        margin: auto;
+    }
+}
+
+@media (max-width: 768px) {
+    .inputNumMatriz {
+        width: 40px;
+        height: 40px;
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 480px) {
+    .inputNumMatriz {
+        width: 30px;
+        height: 30px;
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 768px) {
+    .botones {
+        padding: 10px 15px;
+        font-size: 14px;
+    }
+}
+
+
+
 html, body {
     margin: 0;
     padding: 0;
@@ -7,6 +43,7 @@ html, body {
     display: flex;
     flex-direction: column;
     text-align: center;
+    overflow: hidden;
 }
 
 #div-header {
@@ -89,10 +126,12 @@ html, body {
     height: 100%;
 }
 
-.matricesLiteral{
-
+.matricesLiteral {
     background-color: #663cae;
     margin: 10px;
+    max-width: 100%;
+    overflow-x: auto;
+    display: block;
 }
 
 #matrizA, #matrizB, #matrizResultado{
@@ -160,6 +199,14 @@ html, body {
     margin: 6px;
     text-align: center;
 }
+
+#divFilaResultados, #divBotones {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
 
 #divFilaResultados {
     display: flex;

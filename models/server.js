@@ -20,8 +20,8 @@ class Server {
     middlewares() {
         this.app.use(express.static('public'));
         this.app.set('view engine', 'hbs');
-        this.app.use(express.json()); // Permite recibir JSON en req.body
-        this.app.use(express.urlencoded({ extended: true })); // Permite recibir datos de formularios
+        this.app.use(express.json());
+        this.app.use(express.urlencoded({ extended: true }));
 
     };
 
