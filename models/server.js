@@ -1,7 +1,7 @@
 const exp = require('constants');
 const express = require('express');
 const hbs = require('hbs');
-const {connect} = require('../database/config.js');
+const { connect } = require('../database/config.js');
 
 class Server {
 
@@ -20,6 +20,9 @@ class Server {
     middlewares() {
         this.app.use(express.static('public'));
         this.app.set('view engine', 'hbs');
+        this.app.use(express.json()); // Permite recibir JSON en req.body
+        this.app.use(express.urlencoded({ extended: true })); // Permite recibir datos de formularios
+
     };
 
     listen() {
