@@ -242,9 +242,8 @@ function creacionMatrizResultado(matrizResultado) {
 async function guardarBase(operacion) {
     const matrizJSON = JSON.stringify(matrizResultado);
 
-    console.log(`Valores: ${matrizJSON}, Tipo: ${matrizJSON}`);
+    console.log(`Valores: ${matrizJSON}, Tipo: ${typeof matrizJSON}`);
     try {
-
         const response = await fetch("/save", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
@@ -254,14 +253,16 @@ async function guardarBase(operacion) {
         const data = await response.json();
 
         if (response.ok) {
-            console.log(data.message);
+            // Aquí es donde debes insertar el HTML que recibes en la respuesta
+            document.getElementById('resultados').innerHTML = data.html;
         } else {
             console.log("Error en la solicitud: " + response.statusText);
         }
     } catch (error) {
         console.error("Error en la solicitud:", error);
         console.log("Error en la conexión");
-    };
-};
+    }
+}
+
 
 

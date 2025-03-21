@@ -43,7 +43,7 @@ html, body {
     display: flex;
     flex-direction: column;
     text-align: center;
-    overflow: hidden;
+
 }
 
 #div-header {
@@ -235,4 +235,46 @@ html, body {
     background: linear-gradient(to right, #6a5acd, #8f7ada);
     transform: scale(1.05);
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+table {
+    width: 60%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    font-family: Arial, sans-serif;
+}
+
+th, td {
+    padding: 10px;
+    text-align: left;
+    border: 1px solid #ddd;
+}
+
+th {
+    background: linear-gradient(to right, #8f7ada, #6a5acd);
+    color: white;
+}
+
+tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+tr:hover {
+    background-color: #ddd;
+}
+
+td {
+    word-wrap: break-word;
+}
+
+/* Agregar bordes redondeados */
+table, th, td {
+    border-radius: 8px;
+}
+
+/* Estilo para la tabla cuando no hay resultados */
+tbody:empty {
+    text-align: center;
+    font-style: italic;
+    color: #888;
 }

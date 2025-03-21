@@ -2,6 +2,7 @@ const exp = require('constants');
 const express = require('express');
 const hbs = require('hbs');
 const { connect } = require('../database/config.js');
+const path = require('path');
 
 class Server {
 
@@ -22,7 +23,7 @@ class Server {
         this.app.set('view engine', 'hbs');
         this.app.use(express.json());
         this.app.use(express.urlencoded({ extended: true }));
-
+        this.hbs.registerPartials(path.join(__dirname, '../views/partials'));
     };
 
     listen() {
