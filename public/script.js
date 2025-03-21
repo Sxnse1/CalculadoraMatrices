@@ -16,13 +16,13 @@ function confirmarMatriz() {
 }
 
 function creacionMatrizDinamica(numFilasMatriz, numColumnasMatriz) {
+    const padre = document.getElementById('padre');
     pantallaMatrices = document.createElement("div");
     pantallaMatrices.id = "div-pantalla-matriz";
     pantallaMatrices.style.display = "flex";
     pantallaMatrices.style.flexDirection = "column";
     pantallaMatrices.style.alignItems = "center";
-
-    document.body.appendChild(pantallaMatrices);
+    padre.appendChild(pantallaMatrices);
 
     let divFilaMatrices = document.createElement("div");
     divFilaMatrices.style.display = "flex";

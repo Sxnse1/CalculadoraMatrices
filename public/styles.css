@@ -1,41 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
 
-@media (max-width: 768px) {
-    #div-pantalla-matriz {
-        flex-direction: column;
-    }
-
-    .matricesLiteral {
-        width: 90%;
-        margin: auto;
-    }
-}
-
-@media (max-width: 768px) {
-    .inputNumMatriz {
-        width: 40px;
-        height: 40px;
-        font-size: 16px;
-    }
-}
-
-@media (max-width: 480px) {
-    .inputNumMatriz {
-        width: 30px;
-        height: 30px;
-        font-size: 16px;
-    }
-}
-
-@media (max-width: 768px) {
-    .botones {
-        padding: 10px 15px;
-        font-size: 14px;
-    }
-}
-
-
-
 html, body {
     margin: 0;
     padding: 0;
@@ -43,22 +7,23 @@ html, body {
     display: flex;
     flex-direction: column;
     text-align: center;
+}
 
+body {
+    font-family: "Ubuntu", serif;
 }
 
 #div-header {
     display: flex;
-    font-family: "Ubuntu", serif;
     width: 100%;
     padding: 20px 0;
     background: linear-gradient(to right, #8f7ada, #6a5acd, #483d8b);
     color: white;
-    flex-direction: column;
     justify-content: center;
-    align-items: center;
     text-align: center;
+    align-items: center;
+    flex-direction: column;
 }
-
 
 #div-pantalla-principal {
     flex: 1;
@@ -66,40 +31,59 @@ html, body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    text-align: center;
-    font-family: "Ubuntu", serif;
-    font-weight: 600;
 }
 
-.input-indicador {
-    width: 20%;
-    padding: 10px;
-    border: 2px solid #8f7ada;
-    border-radius: 10px;
-    outline: none;
-    transition: 0.3s;
-    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
-    text-align: center;
-    caret-color: #008B8B;
-    font-family: "Ubuntu", serif;
-    color: gray
+#div-pantalla-matriz {
+    display: flex;
+    flex-direction: column; /* Apila verticalmente las matrices */
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px; /* Espacio entre la matriz y los resultados */
+    width: 100%;
 }
 
-.input-indicador:focus {
-    border-color: #6a5acd;
-    box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.3);
+.matricesLiteral {
+    background-color: #663cae;
+    margin: 10px;
+    max-width: 300px;
+    overflow-x: auto;
+    display: block;
+}
+
+.inputNumMatriz {
+    width: 50px;
+    height: 50px;
+    margin: 6px;
+    text-align: center;
+}
+
+#resultados {
+    margin-top: 20px;
+}
+
+#divFilaResultados, #divBotones {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+#divFilaResultados {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
 }
 
 #boton-confirmar {
     margin: 10px;
-    padding: 12px 20px; 
+    padding: 12px 20px;
     font-size: 16px;
     color: white;
     background: linear-gradient(to right, #8f7ada, #6a5acd);
     border-radius: 8px;
     cursor: pointer;
     transition: all 0.3s ease;
-    text-align: center;
     border: none;
 }
 
@@ -114,114 +98,14 @@ html, body {
     box-shadow: 0 0 0 3px rgba(141, 122, 218, 0.6);
 }
 
-#div-pantalla-matriz{
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    font-family: "Ubuntu", serif;
-    font-weight: 600;
-    display: flex;
-    width: 100%;
-    height: 100%;
-}
-
-.matricesLiteral {
-    background-color: #663cae;
-    margin: 10px;
-    max-width: 100%;
-    overflow-x: auto;
-    display: block;
-}
-
-#matrizA, #matrizB, #matrizResultado{
-    font-family: "Ubuntu", serif;
-}
-
-.inputNumMatriz{
-    width: 50px;
-    height: 50px;
-    margin: 6px;
-}
-
-.botones{
-    margin: 10px;
-    padding: 12px 20px; 
-    font-size: 16px;
-    color: white;
-    background: linear-gradient(to right, #8f7ada, #6a5acd);
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    text-align: center;
-
-}
-
-.botones:hover{
-    background: linear-gradient(to right, #6a5acd, #8f7ada);
-    transform: scale(1.05);
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-}
-
-.botones:focus{
-    outline: none;
-    box-shadow: 0 0 0 3px rgba(141, 122, 218, 0.6);
-}
-
-#divBotones{
+.container {
     display: flex;
     flex-direction: column;
-}
-
-#div-pantalla-matriz {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.matricesLiteral {
-    background-color: #663cae;
-    margin: 10px;
-    border-collapse: collapse;
-}
-
-.matricesLiteral td {
-    width: 50px;
-    height: 50px;
-    text-align: center;
-    border: 1px solid white;
-}
-
-.inputNumMatriz {
-    width: 50px;
-    height: 50px;
-    margin: 6px;
-    text-align: center;
-}
-
-#divFilaResultados, #divBotones {
-    width: 100%;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-}
-
-
-#divFilaResultados {
-    display: flex;
-    justify-content: center;
-    align-items: center;
     gap: 20px;
 }
 
-#matrizResultado {
-    margin-top: 20px;
-    font-weight: bold;
-}
-
+/* Estilos para botones */
 .botones {
-    margin: 10px;
     padding: 12px 20px;
     font-size: 16px;
     color: white;
@@ -229,6 +113,7 @@ html, body {
     border-radius: 8px;
     cursor: pointer;
     transition: all 0.3s ease;
+    border: none;
 }
 
 .botones:hover {
@@ -237,15 +122,20 @@ html, body {
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 
-table {
-    width: 60%;
+.botones:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(141, 122, 218, 0.6);
+}
+
+.table-resultados {
+    width: 30%;
     border-collapse: collapse;
     margin: 20px 0;
     font-family: Arial, sans-serif;
 }
 
 th, td {
-    padding: 10px;
+
     text-align: left;
     border: 1px solid #ddd;
 }
@@ -267,14 +157,26 @@ td {
     word-wrap: break-word;
 }
 
-/* Agregar bordes redondeados */
+/* Bordes redondeados */
 table, th, td {
     border-radius: 8px;
 }
 
-/* Estilo para la tabla cuando no hay resultados */
+/* Estilo para tabla vacía */
 tbody:empty {
     text-align: center;
     font-style: italic;
     color: #888;
+}
+
+#resultados{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    
+}
+#padre{
+    display: flex;
+    flex-direction: column-reverse;
 }
