@@ -35,17 +35,16 @@ body {
 
 #div-pantalla-matriz {
     display: flex;
-    flex-direction: column; /* Apila verticalmente las matrices */
+    flex-direction: column; 
     justify-content: center;
     align-items: center;
-    margin-bottom: 20px; /* Espacio entre la matriz y los resultados */
+    margin-bottom: 20px; 
     width: 100%;
 }
 
 .matricesLiteral {
     background-color: #663cae;
     margin: 10px;
-    max-width: 300px;
     overflow-x: auto;
     display: block;
 }
@@ -104,7 +103,6 @@ body {
     gap: 20px;
 }
 
-/* Estilos para botones */
 .botones {
     padding: 12px 20px;
     font-size: 16px;
@@ -114,6 +112,7 @@ body {
     cursor: pointer;
     transition: all 0.3s ease;
     border: none;
+    margin: 5px;
 }
 
 .botones:hover {
@@ -153,16 +152,12 @@ tr:hover {
     background-color: #ddd;
 }
 
-td {
-    word-wrap: break-word;
-}
 
-/* Bordes redondeados */
 table, th, td {
     border-radius: 8px;
 }
 
-/* Estilo para tabla vacía */
+
 tbody:empty {
     text-align: center;
     font-style: italic;
@@ -176,7 +171,21 @@ tbody:empty {
     justify-content: center;
     
 }
+
 #padre{
     display: flex;
     flex-direction: column-reverse;
+}
+
+.matricesLiteral {
+    width: 100%; 
+    table-layout: fixed; 
+    border-collapse: collapse; 
+}
+
+.matricesLiteral td {
+    width: 50px; 
+    height: 50px; 
+    text-align: center;
+    border: 1px solid black; 
 }

@@ -107,12 +107,12 @@ function creacionMatrizDinamica(numFilasMatriz, numColumnasMatriz) {
     divBotones.appendChild(botonResta);
 
     let botonDivision = document.createElement("button");
-    botonDivision.textContent = "División";
+    botonDivision.textContent = "Multiplicación";
     botonDivision.classList.add("botones");
     botonDivision.id = 'botonDivision';
     botonDivision.onclick = function () {
         operacionDivision(numFilasMatriz, numColumnasMatriz);
-        guardarBase('Division');
+        guardarBase('Multiplicacion');
     };
     divBotones.appendChild(botonDivision);
 }
@@ -165,7 +165,7 @@ function operacionDivision(numFilasMatriz, numColumnasMatriz) {
     matrizResultado = new Array(numFilasMatriz).fill().map(() => new Array(numColumnasMatriz).fill(0));
     for (let i = 0; i < numFilasMatriz; i++) {
         for (let j = 0; j < numColumnasMatriz; j++) {
-            matrizResultado[i][j] = parseInt(matrizA[i][j]) / parseInt(matrizB[i][j]);
+            matrizResultado[i][j] = parseInt(matrizA[i][j]) * parseInt(matrizB[i][j]);
         }
     }
 
